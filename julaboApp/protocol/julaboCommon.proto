@@ -1,0 +1,68 @@
+#These are the commands where the command string is the same
+#for all models of julabo.
+#Note: some of the julabos do not implement all the commands
+#For example: the FL300 does not use the setControlMode or readControlMode,
+#so these commands should not be used in the db file
+
+InTerminator = '\r\n';
+OutTerminator = '\r';
+ReplyTimeout = 2000;
+
+getVersion {
+    out "VERSION";
+    #Read no more that 39 chars (EPICS limit)
+    in "%/(.{0,39}).*/";
+    ExtraInput = Ignore;
+}
+
+getStatus {
+    out "STATUS";
+    #Read no more that 39 chars (EPICS limit)
+    in "%/(.{0,39}).*/";
+    ExtraInput = Ignore;
+}
+
+readInternalTemp {
+    out "IN_PV_00";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+readSetTemp {
+    out "IN_SP_00";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+writeTemp
+{
+    out "OUT_SP_00 %.1f";
+}
+
+#Is the unit running (i.e. circulating)
+readRunMode {
+    out "IN_MODE_05";
+    in "%d";
+    ExtraInput = Ignore;
+}
+
+#Set the unit running (i.e. circulating)
+setRunMode
+{
+    out "OUT_MODE_05 %{0|1}";
+}
+
+#read the control mode (internal or external sensor)
+#Not all julabos have this feature
+readControlMode {
+    out "IN_MODE_04";
+    in "%d";
+    ExtraInput = Ignore;
+}
+
+#Set the control mode (internal or external sensor)
+#Not all julabos have this feature
+setControlMode
+{
+    out "OUT_MODE_04 %{0|1}";
+}
