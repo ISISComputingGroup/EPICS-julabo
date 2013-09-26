@@ -12,7 +12,7 @@ record(stringin, "$(P)STATUS")
     field(INP,  "@julaboCommon.proto getStatus $(PORT)")
 }
 
-record(ai, "$(P)TEMP:SP") 
+record(ai, "$(P)TEMP:SP:RBV") 
 {
     field(SCAN, "1 second")
     field(DTYP, "stream")
@@ -21,7 +21,7 @@ record(ai, "$(P)TEMP:SP")
     #field(EGU,  "C")
 }
 
-record(ai, "$(P)TEMP:RB") 
+record(ai, "$(P)TEMP") 
 {
     field(SCAN, "1 second")
     field(DTYP, "stream")
@@ -30,7 +30,7 @@ record(ai, "$(P)TEMP:RB")
     #field(EGU,  "C")
 }
 
-record(ao, "$(P)TEMP") 
+record(ao, "$(P)TEMP:SP") 
 {
     field(SCAN, "Passive")
     field(DTYP, "stream")
@@ -39,7 +39,7 @@ record(ao, "$(P)TEMP")
     field(PREC, "1")
 }
 
-record(bi, "$(P)MODE:RB") 
+record(bi, "$(P)MODE") 
 {
     field(SCAN, "1 second")
     field(DTYP, "stream")
@@ -48,7 +48,7 @@ record(bi, "$(P)MODE:RB")
     field(ONAM, "ON")
 }
 
-record(bo, "$(P)MODE") 
+record(bo, "$(P)MODE:SP") 
 {
     field(SCAN, "Passive")
     field(DTYP, "stream")
