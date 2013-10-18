@@ -8,7 +8,7 @@ class JulaboFP50_MH:
         self.EXT_TEMP = 0.0
         self.MODE = 0   #0 or 1 = Off, On
         self.VERSION = "JULABO FP50_MH Simulator, ISIS"
-        self.STATUS = "What should this return?"
+        self.STATUS = "Some kind of status message here"
         self.POWER = 45
         self.HIGH_LIMIT = 100
         self.LOW_LIMIT = -20

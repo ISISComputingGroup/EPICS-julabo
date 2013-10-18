@@ -7,7 +7,7 @@ class JulaboFL300:
         self.TEMP_SP = 0.0
         self.MODE = 0   #0 or 1 = Off, On
         self.VERSION = "JULABO FL300 Simulator, ISIS"
-        self.STATUS = "What should this return?"
+        self.STATUS = "Some kind of status message here"
         
     def check_command(self, comstr):       
         if comstr == "IN_PV_00":
