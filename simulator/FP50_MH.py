@@ -1,4 +1,5 @@
 import re
+from random import randint
 
 class JulaboFP50_MH:
     def __init__(self):
@@ -15,7 +16,7 @@ class JulaboFP50_MH:
     def check_command(self, comstr):       
         if comstr == "IN_PV_00":
             #Get actual value
-            return str(self.TEMP)
+            return str(self.TEMP + randint(-2,2)/10.0)
         elif comstr == "IN_SP_00":
             #Get setpoint value
             return str(self.TEMP_SP)

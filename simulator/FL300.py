@@ -1,4 +1,5 @@
 import re
+from random import randint
 
 class JulaboFL300:
     def __init__(self):
@@ -11,7 +12,7 @@ class JulaboFL300:
     def check_command(self, comstr):       
         if comstr == "IN_PV_00":
             #Get actual value
-            return str(self.TEMP)
+            return str(self.TEMP + randint(-2,2)/10.0)
         elif comstr == "IN_SP_00":
             #Get setpoint value
             return str(self.TEMP_SP)
@@ -22,8 +23,7 @@ class JulaboFL300:
                 if len(m.groups()) > 0:
                     try:
                         self.TEMP_SP = float(m.groups()[0])
-                        #Set the "actual value" to the sp plus a little
-                        self.TEMP = self.TEMP_SP + 0.1
+                        self.TEMP = self.TEMP_SP
                     except:
                         #The cast to float failed for some reason
                         pass
