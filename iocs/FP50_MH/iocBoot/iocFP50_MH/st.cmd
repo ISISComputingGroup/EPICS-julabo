@@ -14,7 +14,7 @@ cd ${TOP}
 
 ## Register all support components
 dbLoadDatabase "dbd/FP50_MH.dbd"
-julaboFL300_registerRecordDeviceDriver pdbbase
+FP50_MH_registerRecordDeviceDriver pdbbase
 
 drvAsynSerialPortConfigure("L0", "$(TTY)", 0, 0, 0, 0)
 asynSetOption("L0", -1, "baud", "4800")
