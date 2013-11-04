@@ -21,7 +21,7 @@ FL300_DBD += drvAsynSerialPort.dbd
 FL300_DBD += drvAsynIPPort.dbd
 FL300_DBD += devIocStats.dbd
 
-FL300_LIBS += stream
+FL300_LIBS += stream pcre
 FL300_LIBS += asyn devIocStats  
 
 # FL300_registerRecordDeviceDriver.cpp derives from FL300.dbd

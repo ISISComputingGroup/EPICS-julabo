@@ -21,7 +21,7 @@ FP50_MH_DBD += drvAsynSerialPort.dbd
 FP50_MH_DBD += drvAsynIPPort.dbd
 FP50_MH_DBD += devIocStats.dbd
 
-FP50_MH_LIBS += stream
+FP50_MH_LIBS += stream pcre
 FP50_MH_LIBS += asyn devIocStats  
 
 # FP50_MH_registerRecordDeviceDriver.cpp derives from FP50_MH.dbd
