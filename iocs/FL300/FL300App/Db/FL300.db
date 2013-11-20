@@ -3,6 +3,8 @@ record(stringin, "$(P)VERSION")
     field(DTYP, "stream")
     field(INP,  "@julaboCommon.proto getVersion $(PORT)")
     field(PINI, "YES")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:VERSION")
 }
 
 record(stringin, "$(P)STATUS")
@@ -10,6 +12,8 @@ record(stringin, "$(P)STATUS")
     field(SCAN, "1 second")
     field(DTYP, "stream")
     field(INP,  "@julaboCommon.proto getStatus $(PORT)")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:STATUS")
 }
 
 record(ai, "$(P)TEMP:SP:RBV") 
@@ -19,6 +23,8 @@ record(ai, "$(P)TEMP:SP:RBV")
     field(INP,  "@julaboCommon.proto readSetTemp $(PORT)")
     field(PREC, "1")
     #field(EGU,  "C")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:TEMP")
 }
 
 record(ai, "$(P)TEMP") 
@@ -28,6 +34,8 @@ record(ai, "$(P)TEMP")
     field(INP,  "@julaboCommon.proto readInternalTemp $(PORT)")
     field(PREC, "1")
     #field(EGU,  "C")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:TEMP")
 }
 
 record(ao, "$(P)TEMP:SP") 
@@ -37,6 +45,8 @@ record(ao, "$(P)TEMP:SP")
     field(OUT,  "@julaboCommon.proto writeTemp $(PORT)")
     #field(EGU, "C")
     field(PREC, "1")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:TEMP")
 }
 
 record(bi, "$(P)MODE") 
@@ -46,6 +56,8 @@ record(bi, "$(P)MODE")
     field(INP,  "@julaboCommon.proto readRunMode $(PORT)")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:MODE")
 }
 
 record(bo, "$(P)MODE:SP") 
@@ -53,6 +65,41 @@ record(bo, "$(P)MODE:SP")
     field(SCAN, "Passive")
     field(DTYP, "stream")
     field(OUT,  "@julaboCommon.proto setRunMode $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+	field(SIML, "$(P)SIM")
+	field(SIOL, "$(P)SIM:MODE")
+}
+
+record(bi, "$(P)SIM")
+{
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "Device")
+    field(ONAM, "Simulated")
+    field(FLNK, "$(P)VERSION")
+}
+
+record(stringin, "$(P)SIM:VERSION")
+{
+    field(DTYP, "Soft Channel")
+    field(VAL, "Simulated Julabo FL300")
+}
+
+record(stringin, "$(P)SIM:STATUS")
+{
+    field(DTYP, "Soft Channel")
+    field(VAL, "Simulated")
+}
+
+record(ai, "$(P)SIM:TEMP")
+{
+    field(DTYP, "Soft Channel")
+    field(VAL, "0")
+}
+
+record(bi, "$(P)SIM:MODE")
+{
+    field(DTYP, "Soft Channel")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
