@@ -23,7 +23,7 @@ record(ai, "$(P)TEMP:SP:RBV")
     field(INP,  "@julaboCommon.proto readSetTemp $(PORT)")
     field(PREC, "1")
     #field(EGU,  "C")
-	field(SIOL, "$(P)SIM:TEMP:SP")
+	field(SIOL, "$(P)SIM:TEMP:SP:RBV")
 	field(SIML, "$(P)SIM")
 }
 
@@ -67,7 +67,7 @@ record(bo, "$(P)MODE:SP")
     field(OUT,  "@julaboCommon.proto setRunMode $(PORT)")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
-	field(SIOL, "$(P)SIM:MODE")
+	field(SIOL, "$(P)SIM:MODE:SP")
 	field(SIML, "$(P)SIM")
 }
 
@@ -180,3 +180,6 @@ record(ai, "$(P)SIM:LOWLIMIT")
 	field(DTYP, "Soft Channel")
 	field(VAL, "0")
 }
+
+alias ("$(P)SIM:TEMP:SP","$(P)SIM:TEMP:SP:RBV")
+alias ("$(P)SIM:MODE:SP","$(P)SIM:MODE")
