@@ -116,28 +116,28 @@ record(ai, "$(P)LOWLIMIT")
 	field(SIML, "$(P)SIM")
 }
 
-record(bi, "$(P)SIM")
+record(bo, "$(P)SIM")
 {
 	field(DTYP, "Soft Channel")
-	field(ZNAM, "Device")
-    field(ONAM, "Simulated")
+	field(ZNAM, "No")
+    field(ONAM, "Yes")
 	field(FLNK, "$(P)VERSION")
 }
 
-record(stringin, "$(P)SIM:VERSION")
+record(stringout, "$(P)SIM:VERSION")
 {
 	field(DTYP, "Soft Channel")
 	field(VAL, "Simulated Julabo FP50_MH")
 }
 
-record(stringin, "$(P)SIM:STATUS")
+record(stringout, "$(P)SIM:STATUS")
 {
 	field(DTYP, "Soft Channel")
 	field(VAL, "Simulated")
 }
 
 
-record(ai, "$(P)SIM:TEMP:SP")
+record(ao, "$(P)SIM:TEMP:SP")
 {
 	field(DTYP, "Soft Channel")
 }
@@ -149,14 +149,14 @@ record(calc, "$(P)SIM:TEMP")
 	field(CALC, "A + 0.2")
 }
 
-record(bi, "$(P)SIM:MODE")
+record(bo, "$(P)SIM:MODE")
 {
 	field(DTYP, "Soft Channel")
 	field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
 
-record(ai, "$(P)SIM:POWER")
+record(ao, "$(P)SIM:POWER")
 {
 	field(DTYP, "Soft Channel")
 	field(VAL, "75")
@@ -169,17 +169,17 @@ record(calc, "$(P)SIM:EXTTEMP")
 	field(CALC, "25 + A")
 }
 
-record(ai, "$(P)SIM:HIGHLIMIT")
+record(ao, "$(P)SIM:HIGHLIMIT")
 {
 	field(DTYP, "Soft Channel")
 	field(VAL, "1000")
 }
 
-record(ai, "$(P)SIM:LOWLIMIT")
+record(ao, "$(P)SIM:LOWLIMIT")
 {
 	field(DTYP, "Soft Channel")
 	field(VAL, "0")
 }
 
 alias ("$(P)SIM:TEMP:SP","$(P)SIM:TEMP:SP:RBV")
-alias ("$(P)SIM:MODE:SP","$(P)SIM:MODE")
+alias ("$(P)SIM:MODE","$(P)SIM:MODE:SP")
