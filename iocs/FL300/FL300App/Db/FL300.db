@@ -74,8 +74,8 @@ record(bo, "$(P)MODE:SP")
 record(bo, "$(P)SIM")
 {
     field(DTYP, "Soft Channel")
-    field(ZNAM, "No")
-    field(ONAM, "Yes")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
     field(FLNK, "$(P)VERSION")
 }
 
