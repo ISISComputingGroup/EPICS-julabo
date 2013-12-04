@@ -1,3 +1,21 @@
+record(bo, "$(P)SIM")
+{
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(FLNK, "$(P)VERSION")
+}
+
+record(bo, "$(P)DISABLE") 
+{
+    field(DESC, "Disable comms")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(OMSL, "supervisory")
+    field(ZNAM, "COMMS ENABLED")
+    field(ONAM, "COMMS DISABLED")
+}
+
 record(stringin, "$(P)VERSION")
 {
     field(DTYP, "stream")
@@ -5,6 +23,7 @@ record(stringin, "$(P)VERSION")
     field(PINI, "YES")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:VERSION")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(stringin, "$(P)STATUS")
@@ -14,6 +33,7 @@ record(stringin, "$(P)STATUS")
     field(INP,  "@julaboCommon.proto getStatus $(PORT)")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:STATUS")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ai, "$(P)TEMP:SP:RBV") 
@@ -25,6 +45,7 @@ record(ai, "$(P)TEMP:SP:RBV")
     #field(EGU,  "C")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:TEMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ai, "$(P)TEMP") 
@@ -36,6 +57,7 @@ record(ai, "$(P)TEMP")
     #field(EGU,  "C")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:TEMP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ao, "$(P)TEMP:SP") 
@@ -47,6 +69,7 @@ record(ao, "$(P)TEMP:SP")
     field(PREC, "1")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:TEMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(bi, "$(P)MODE") 
@@ -58,6 +81,7 @@ record(bi, "$(P)MODE")
     field(ONAM, "ON")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:MODE")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(bo, "$(P)MODE:SP") 
@@ -69,15 +93,12 @@ record(bo, "$(P)MODE:SP")
     field(ONAM, "ON")
 	field(SIML, "$(P)SIM")
 	field(SIOL, "$(P)SIM:MODE:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
-record(bo, "$(P)SIM")
-{
-    field(DTYP, "Soft Channel")
-    field(ZNAM, "NO")
-    field(ONAM, "YES")
-    field(FLNK, "$(P)VERSION")
-}
+alias("$(P)MODE","$(P)MODE:SP:RBV")
+
+### SIMULATION RECORDS ###
 
 record(stringout, "$(P)SIM:VERSION")
 {
@@ -104,6 +125,6 @@ record(bo, "$(P)SIM:MODE")
     field(ONAM, "ON")
 }
 
-alias ("$(P)SIM:TEMP","$(P)SIM:TEMP:SP:RBV")
-alias ("$(P)SIM:TEMP","$(P)SIM:TEMP:SP")
-alias ("$(P)SIM:MODE","$(P)SIM:MODE:SP")
+alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP:RBV")
+alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP")
+alias("$(P)SIM:MODE","$(P)SIM:MODE:SP")
