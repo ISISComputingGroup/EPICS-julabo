@@ -118,6 +118,10 @@ record(ao, "$(P)SIM:TEMP")
     field(VAL, "0")
 }
 
+alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP")
+
+alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP:RBV")
+
 record(bo, "$(P)SIM:MODE")
 {
     field(DTYP, "Soft Channel")
@@ -125,6 +129,6 @@ record(bo, "$(P)SIM:MODE")
     field(ONAM, "ON")
 }
 
-alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP:RBV")
-alias("$(P)SIM:TEMP","$(P)SIM:TEMP:SP")
 alias("$(P)SIM:MODE","$(P)SIM:MODE:SP")
+
+alias("$(P)SIM:MODE","$(P)SIM:MODE:SP:RBV")
