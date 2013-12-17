@@ -22,7 +22,7 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # If using the sequencer, point SNCSEQ at its top directory:
-ASYN=$(SUPPORT)/asyn/4-18
+ASYN=$(SUPPORT)/asyn/4-22
 STREAMDEVICE=$(SUPPORT)/StreamDevice
 DEVIOCSTATS=$(SUPPORT)/devIocStats/3-1-11
 PCRE=$(SUPPORT)/pcre
