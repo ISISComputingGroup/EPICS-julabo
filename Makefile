@@ -5,7 +5,6 @@ ACTIONS += kit zip
 DIRS := $(DIRS) $(filter-out $(DIRS), configure)
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
-DIRS := $(DIRS) $(filter-out $(DIRS), iocs)
 
 include $(TOP)/configure/RULES_TOP
 
