@@ -1,6 +1,10 @@
 #These are the commands where the command string may be different
 #for different models of julabo.
 
+InTerminator = '\r\n';
+OutTerminator = '\r';
+ReplyTimeout = 2000;
+
 #Depending on the julabo model the external temperature
 #read command may be "IN_PV_01" or "IN_PV_02".
 #So, this uses a parameter from the db file
