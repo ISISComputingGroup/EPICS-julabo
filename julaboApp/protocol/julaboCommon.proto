@@ -66,3 +66,116 @@ setControlMode
 {
     out "OUT_MODE_04 %{0|1}";
 }
+
+################################
+# Read Internal PID Parameters #
+################################
+
+# Read internal P parameter
+# Xp in Julabo speak
+getInternalProportional
+{
+    out "IN_PAR_06";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+# Read internal I parameter
+# Tn in Julabo speak
+getInternalIntegral
+{
+    out "IN_PAR_07";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+# Read internal D parameter
+# Tv in Julabo speak
+getInternalDerivative
+{
+    out "IN_PAR_08";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+#################################
+# Write Internal PID Parameters #
+#################################
+
+# Write internal P parameter (0.1 ... 99.9)
+# Xp in Julabo speak
+setInternalProportional
+{
+    out "OUT_PAR_06 %.1f";
+}
+
+# Write internal I parameter (3 ... 9999)
+# Tn in Julabo speak
+setInternalIntegral
+{
+    out "OUT_PAR_07 %d";
+}
+
+# Write internal D parameter (0 ... 999)
+# Tv in Julabo speak
+setInternalDerivative
+{
+    out "OUT_PAR_08 %d";
+}
+
+################################
+# Read External PID Parameters #
+################################
+
+# Read external P parameter
+# Xp in Julabo speak
+getExternalProportional
+{
+    out "IN_PAR_09";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+# Read external I parameter
+# Tn in Julabo speak
+getExternalIntegral
+{
+    out "IN_PAR_11";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+# Read external D parameter
+# Tv in Julabo speak
+getExternalDerivative
+{
+    out "IN_PAR_12";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+
+#################################
+# Write External PID Parameters #
+#################################
+
+# Write external P parameter (0.1 ... 99.9)
+# Xp in Julabo speak
+setExternalProportional
+{
+    out "OUT_PAR_09 %.1f";
+}
+
+# Write external I parameter (3 ... 9999)
+# Tn in Julabo speak
+setExternalIntegral
+{
+    out "OUT_PAR_11 %d";
+}
+
+# Write external D parameter (0 ... 999)
+# Tv in Julabo speak
+setExternalDerivative
+{
+    out "OUT_PAR_12 %d";
+}
