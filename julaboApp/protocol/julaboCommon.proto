@@ -4,8 +4,6 @@
 #For example: the FL300 does not use the setControlMode or readControlMode,
 #so these commands should not be used in the db file
 
-InTerminator = '\r\n';
-OutTerminator = '\r';
 ReplyTimeout = 2000;
 
 getVersion {
